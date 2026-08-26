@@ -371,7 +371,7 @@ with gr.Blocks(
         "Поддерживает мульти-референсы: до **9 картинок**, до **3 видео** и до **3 аудио** (`@Image1`, `@Video1`, `@Audio1`)."
     )
 
-    with gr.Accordion("⚙️ Настройки API и Подключения (сохраняются автоматически)", open=not bool(init_config.get("api_key"))):
+    with gr.Accordion("⚙️ Настройки API и Подключения", open=not bool(init_config.get("api_key"))):
         with gr.Row():
             api_key_input = gr.Textbox(
                 label="🔑 OpenRouter API Key",
@@ -499,5 +499,11 @@ with gr.Blocks(
         outputs=[status_output, video_output],
     )
 
+    gr.HTML(
+        "<div style='text-align: center; margin-top: 30px; padding: 18px 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.1em; color: #9ca3af; border-top: 1px solid rgba(156, 163, 175, 0.2); text-transform: uppercase;'>"
+        "v1.0.0 · by <span style=\"font-weight: 800; color: #6366f1;\">DEDBW</span>"
+        "</div>"
+    )
+
 if __name__ == "__main__":
-    demo.queue().launch(show_error=True, theme=gr.themes.Soft())
+    demo.queue().launch(inbrowser=True, show_error=True, theme=gr.themes.Soft())

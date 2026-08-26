@@ -3,39 +3,39 @@ chcp 65001 >nul
 title Seedance AI Video Generator
 
 echo ===================================================
-echo     🎬 Запуск Seedance AI Video Generator
+echo     Seedance AI Video Generator
 echo ===================================================
 echo.
 
-:: Переходим в директорию скрипта
+REM Perehod v papku skripta
 cd /d "%~dp0"
 
-:: Проверка наличия Python
+REM Proverka Python
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [ОШИБКА] Python не найден в системе!
-    echo Установите Python 3.10+ и добавьте его в PATH.
+    echo [ERROR] Python not found / Python ne nayden!
+    echo Please install Python 3.10+ and add it to PATH.
     pause
     exit /b
 )
 
-:: Проверка и установка зависимостей
-echo [1/2] Проверка зависимостей (gradio, requests)...
+REM Proverka zavisimostey
+echo [1/2] Checking dependencies (gradio, requests)...
 python -c "import gradio, requests" >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Установка необходимых библиотек...
-    python -m pip install gradio requests
+    echo Installing dependencies...
+    python -m pip install -r requirements.txt
     if %errorlevel% neq 0 (
-        echo [ОШИБКА] Не удалось установить зависимости.
+        echo [ERROR] Failed to install dependencies.
         pause
         exit /b
     )
 )
 
-:: Запуск приложения
-echo [2/2] Запуск интерфейса Gradio...
+REM Zapusk
+echo [2/2] Launching Gradio Web UI...
 echo.
-echo Веб-интерфейс будет доступен по адресу: http://127.0.0.1:7860
+echo URL: http://127.0.0.1:7860
 echo.
 python app.py
 
