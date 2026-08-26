@@ -1,6 +1,10 @@
 # Конфигурация и приватные данные
 config.json
 
+# Текстовые заметки и файлы (исключая requirements.txt)
+*.txt
+!requirements.txt
+
 # Окружения Python
 venv/
 .venv/
