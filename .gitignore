@@ -1,9 +1,9 @@
 # Конфигурация и приватные данные
 config.json
 
-# Текстовые заметки и файлы (исключая requirements.txt)
-*.txt
-!requirements.txt
+# Папка с ассетами и готовыми видео
+assets/
+outputs/
 
 # Окружения Python
 venv/
